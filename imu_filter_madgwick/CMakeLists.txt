@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.5.1)
-cmake_policy(SET CMP0048 NEW)
 project(imu_filter_madgwick)
 
 # Default to C++14
@@ -46,7 +45,14 @@ install(TARGETS
   imu_filter_madgwick
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin)
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+)
+
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
 
 install(TARGETS
   imu_filter_madgwick_node
